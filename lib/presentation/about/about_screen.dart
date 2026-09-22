@@ -16,7 +16,7 @@ import '../../core/theme/design_tokens.dart';
 /// is a perfectly fine workflow.
 const String kAuthorName = 'Abdal';
 const String kRepoUrl = 'https://github.com/muhammad-abdal/auroa.git';
-const String kDemoUrl = 'https://aurora.example.com';
+// const String kDemoUrl = 'https://aurora.example.com';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -55,7 +55,7 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: T.s40),
                 _LinkRow(label: 'Repository', url: kRepoUrl),
                 const SizedBox(height: T.s12),
-                _LinkRow(label: 'Live demo', url: kDemoUrl),
+                // _LinkRow(label: 'Live demo', url: kDemoUrl),
               ],
             ),
           ),
