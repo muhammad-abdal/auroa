@@ -5,7 +5,6 @@
 **Six original fragment shaders for Flutter.**  
 Live in a gallery, tunable, exportable.
 
-[Live demo](⟨demo-url⟩) · [Report an issue](⟨issues-url⟩)
 
 ![Aurora gallery](docs/gallery.gif)
 
