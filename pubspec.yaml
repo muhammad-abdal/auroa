@@ -1,0 +1,36 @@
+name: aurora
+description: "Live shader gallery."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_animate: ^4.5.2
+  hive_ce: ^2.19.3
+  hive_ce_flutter: ^2.3.4
+  visibility_detector: ^0.4.0+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  shaders:
+    - shaders/aurora.frag
+    - shaders/nebula.frag
+    - shaders/plasma.frag
+    - shaders/ripple.frag
+    - shaders/ember.frag
+    - shaders/prism.frag
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
