@@ -15,7 +15,7 @@ import '../../core/theme/design_tokens.dart';
 /// out of the dependency list, and a recruiter pasting a URL into a browser
 /// is a perfectly fine workflow.
 const String kAuthorName = 'Abdal';
-const String kRepoUrl = 'https://github.com/you/aurora';
+const String kRepoUrl = 'https://github.com/muhammad-abdal/auroa.git';
 const String kDemoUrl = 'https://aurora.example.com';
 
 class AboutScreen extends StatelessWidget {
