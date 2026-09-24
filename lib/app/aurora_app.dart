@@ -1,4 +1,5 @@
 import 'package:aurora/core/layout/repository_scope.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -9,17 +10,6 @@ import '../core/theme/breakpoints.dart';
 import '../domain/repositories/favorites_repository.dart';
 import 'aurora_shell.dart';
 
-/// The composition root's UI half.
-///
-/// **Everything a pushed route needs lives here, above [MaterialApp].**
-/// Pushed routes mount in the Navigator's overlay, which is above `home:`
-/// in the tree. Any `InheritedWidget` placed inside `home:` is invisible
-/// to them. That's why [ShaderClock] and [LayoutScope] are here and not in
-/// [AuroraShell] — the detail screen is a pushed route and needs both.
-///
-/// [AuroraApp] owns the single [Ticker] for the same reason: it must
-/// outlive any route push. One ticker, one [ValueNotifier], for the
-/// app's lifetime.
 class AuroraApp extends StatefulWidget {
   final FavoritesRepository repository;
 
@@ -55,17 +45,25 @@ class _AuroraAppState extends State<AuroraApp>
       repository: widget.repository,
       child: ShaderClock(
         time: _time,
-        child: MaterialApp(
-          title: 'Aurora',
-          debugShowCheckedModeBanner: false,
-          theme: AuroraTheme.dark,
-          home: LayoutBuilder(
-            builder: (context, constraints) {
-              return LayoutScope(
-                layout: layoutFor(constraints.biggest),
-                child: const AuroraShell(),
-              );
-            },
+        child: Listener(
+          onPointerDown: (event) {
+            if (event.buttons == kSecondaryMouseButton ||
+                event.buttons == kMiddleMouseButton) {
+              return;
+            }
+          },
+          child: MaterialApp(
+            title: 'Aurora',
+            debugShowCheckedModeBanner: false,
+            theme: AuroraTheme.dark,
+            home: LayoutBuilder(
+              builder: (context, constraints) {
+                return LayoutScope(
+                  layout: layoutFor(constraints.biggest),
+                  child: const AuroraShell(),
+                );
+              },
+            ),
           ),
         ),
       ),
